@@ -1,0 +1,16 @@
+﻿  Building 'KernelCheatYT' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Release\KernelCheatYT.inf
+  Stamping [Version] section with DriverVer=10/17/2023,22.33.30.412
+F:\man7242\KernelYT\KernelCheatYT\KernelCheatYT.inf(5-5): warning 1324: [Version] section should specify PnpLockdown=1 to prevent external apps from modifying installed driver files.
+  hook.cpp
+F:\man7242\KernelYT\KernelCheatYT\hook.cpp(69,23): warning C4996: 'ExAllocatePool': ExAllocatePool is deprecated, use ExAllocatePool2.
+  main.cpp
+  memory.cpp
+F:\man7242\KernelYT\KernelCheatYT\memory.cpp(11,55): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
+F:\man7242\KernelYT\KernelCheatYT\memory.cpp(92,36): warning C4267: 'argument': conversion from 'size_t' to 'ULONG', possible loss of data
+  Generating Code...
+F:\man7242\KernelYT\KernelCheatYT\memory.cpp(76): warning C4715: 'get_system_module_export': not all control paths return a value
+F:\man7242\KernelYT\KernelCheatYT\hook.cpp(136): warning C4706: assignment within conditional expression
+F:\man7242\KernelYT\KernelCheatYT\hook.cpp(151): warning C4706: assignment within conditional expression
+  KernelCheatYT.vcxproj -> F:\man7242\KernelYT\x64\Release\KernelCheatYT.sys
+  Driver is 'Universal'.

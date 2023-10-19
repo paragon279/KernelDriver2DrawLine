@@ -1,0 +1,89 @@
+;
+; KernelCheatYT.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=SampleKD ; TODO: edit Class
+ClassGuid={01d6d275-35fc-406d-bb34-75c553b0af68} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=KernelCheatYT.cat
+DriverVer = 10/17/2023,22.33.30.412
+
+[DestinationDirs]
+DefaultDestDir = 12
+KernelCheatYT_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+KernelCheatYT.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%KernelCheatYT.DeviceDesc%=KernelCheatYT_Device, Root\KernelCheatYT ; TODO: edit hw-id
+
+[KernelCheatYT_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+KernelCheatYT.sys
+
+;-------------- Service installation
+[KernelCheatYT_Device.NT.Services]
+AddService = KernelCheatYT,%SPSVCINST_ASSOCSERVICE%, KernelCheatYT_Service_Inst
+
+; -------------- KernelCheatYT driver install sections
+[KernelCheatYT_Service_Inst]
+DisplayName    = %KernelCheatYT.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\KernelCheatYT.sys
+
+;
+;--- KernelCheatYT_Device Coinstaller installation ------
+;
+
+[KernelCheatYT_Device.NT.CoInstallers]
+AddReg=KernelCheatYT_Device_CoInstaller_AddReg
+CopyFiles=KernelCheatYT_Device_CoInstaller_CopyFiles
+
+[KernelCheatYT_Device_CoInstaller_AddReg]
+;
+
+
+[KernelCheatYT_Device_CoInstaller_CopyFiles]
+;
+
+
+[KernelCheatYT_Device.NT.Wdf]
+KmdfService =  KernelCheatYT, KernelCheatYT_wdfsect
+[KernelCheatYT_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "KernelCheatYT Installation Disk"
+KernelCheatYT.DeviceDesc = "KernelCheatYT Device"
+KernelCheatYT.SVCDESC = "KernelCheatYT Service"
