@@ -36,7 +36,7 @@ git clone https://github.com/yourusername/kernel-driver-draw-line-.git
 
 ## Video Demonstration
 
-[![Watch the video](https://example.com/video_thumbnail.png)](https://example.com/link_to_your_video)
+[![Watch the video](17.10.2023——14.57.40——REC.mp4)
 
 Click on the image above to watch a video demonstration of this kernel driver in action.
 
